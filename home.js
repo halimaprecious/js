@@ -1,6 +1,5 @@
 // Functions and arrays
 
-
 let fruits = ['banana', 'apple', 'orange','strawberry']
 
 for( let i = 0; i < fruits.length; i++){  //looping through the arrray
@@ -32,3 +31,19 @@ for(let num = 0; num < 10; num++){
     emptyArray.push(num);
 }
 console.log(emptyArray)
+
+// Objects in Javascript
+let Student = {
+    firstName: 'Hamilton',
+    lastName: 'Confrod',
+    age:26,
+    height: 170,
+    studentInfo: function(){
+        return this.firstName + '\n' + this.lastName; // oop in js
+    }
+};
+console.log(Student.studentInfo());
+
+
+// LOOPS & Conditionals
+ 
