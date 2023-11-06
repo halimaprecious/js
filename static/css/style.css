@@ -1,0 +1,17 @@
+.container-1{
+    border: 1px solid green;
+}
+.flex-box-container-1 {
+display: flex;
+border: 1px solid rgb(43, 226, 217);
+padding: 10px;
+flex-wrap: wrap;
+justify-content: space-around;
+}
+
+.flex-box-container-1 div{
+    display: flex;
+    padding: 10px;
+    border: 1px solid violet;
+    align-items: center;
+}
