@@ -15,3 +15,13 @@ function ageInDays(){
 function reset(){
     document.getElementById('ageInDays').remove();
 }
+
+
+// challenge 2: Cat Generator
+function generateCat(){
+    let image = document.createElement('img');
+    let div = document.getElementById('flex-cat-gen');
+    image.src = "https://placekitten.com/g/200/300";
+    div.appendChild(image);
+
+}

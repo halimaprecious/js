@@ -1,20 +1,26 @@
-.container-1{
+.container-1, .container-2{
     border: 1px solid green;
     margin: 0 auto;
     width: 70%;
     text-align: center;
 }
-.flex-box-container-1 {
+.flex-box-container-1, .flex-box-container-2{
 display: flex;
 border: 1px solid rgb(43, 226, 217);
 padding: 10px;
 flex-wrap: wrap;
+flex-direction: row;
 justify-content: space-around;
 }
 
 .flex-box-container-1 div{
     display: flex;
     padding: 10px;
-    border: 1px solid violet;
+    /* border: 1px solid violet; */
     align-items: center;
+}
+
+.flex-box-container-2 img{
+    box-shadow: 0px 18px 50px rgba(0, 0, 0, 0.7);
+    margin: 10px;
 }
