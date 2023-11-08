@@ -16,7 +16,6 @@ function reset(){
     document.getElementById('ageInDays').remove();
 }
 
-
 // challenge 2: Cat Generator
 function generateCat(){
     let image = document.createElement('img');
@@ -24,4 +23,14 @@ function generateCat(){
     image.src = "https://placekitten.com/g/200/300";
     div.appendChild(image);
 
+}
+
+// challeng 3: Rock Paper Scissors
+
+function rpsGame(yourChoice){
+    let humanChoice, botChoice;
+    // humanChoice = yourChoice.id 
+    // results = decideWinner(humanChoice, botChoice);  // [0, 1] human lost | bot won
+    // message = finalMessage(results); // {message: 'you won!', 'color': 'green'}
+    rpsFrontEnd(yourChoice.id, botChoice, message);
 }
