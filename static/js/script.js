@@ -26,7 +26,6 @@ function generateCat(){
 }
 
 // challeng 3: Rock Paper Scissors
- 
 function rpsGame(yourChoice){
     let humanChoice, botChoice;
     humanChoice = yourChoice.id;
@@ -45,7 +44,6 @@ function rpsGame(yourChoice){
 }
 
 // generate random number btwn o and 2
-
 function randToRpsInt(){
     return Math.floor(Math.random() * 3);
 }
@@ -57,7 +55,6 @@ function numberToChoice(number){
 }
 
 // possible choices and results.[0, 1] human lost | bot won
-
 function decideWinner(yourChoice, compChoice){
     var rspData = {
         'rock': {'scissors': 1, 'rock':0.5, 'paper': 0},
@@ -71,7 +68,6 @@ function decideWinner(yourChoice, compChoice){
 };
 
 // final message display.{message: 'you won!', 'color': 'green'} 
-
 function finalMessage([yourScore, compScore]){
     if (yourScore === 0){
         return {'message': 'You Lost!', 'color': 'red'};
@@ -108,4 +104,60 @@ function rpsFrontEnd(humanImgChoice, botImgChoice, finalMessage){
     document.getElementById('flex-box-rps-div').appendChild(humanDiv);
     document.getElementById('flex-box-rps-div').appendChild(messageDiv);
     document.getElementById('flex-box-rps-div').appendChild(botDiv);
+}
+
+// Challenge 4: change button colors.
+let allButtons = document.getElementsByTagName('button') //access all buttons on the page
+console.log(allButtons);
+
+let copyAllButtons = [];  // a copy of buttons
+for (let i=0; i < allButtons.length; i++){
+    copyAllButtons.push(allButtons[i]);
+}
+console.log(copyAllButtons)
+
+// 
+function buttonColorChange(buttonText){
+    if (buttonText.value === 'red'){
+        buttonsRed();
+    } else if(buttonText.value === 'green'){
+        buttonsGreen();
+    } else if(buttonText.value === 'reset'){
+        buttonColorReset();
+    }else if (buttonText.value === 'random')
+    randomColors();
+}
+
+// change all buttons to red
+function buttonsRed(){
+    for (let i=0; i < allButtons.length; i++){
+        allButtons[i].classList.remove(allButtons[i].classList[1]);
+        allButtons[i].classList.add('btn-danger');
+    }
+}
+
+function buttonsGreen(){
+    for (let i=0; i < allButtons.length; i++){
+        allButtons[i].classList.remove(allButtons[i].classList[1]);
+        allButtons[i].classList.add('btn-success');
+    }
+}
+
+// reset all buttons to initial colors
+function buttonColorReset(){
+    for (let i=0; i < allButtons.length; i++){
+        allButtons[i].classList.remove(allButtons[i].classList[1]);
+        allButtons[i].classList.add(copyAllButtons[i]);
+    }
+}
+
+// random colors
+function randomColors(){
+    let choices = ['btn-primary', 'btn-danger', 'btn-success', 'btn-warning'];
+
+    for(let i=0; i < allButtons.length; i++){
+        let randomNumber = Math.floor(Math.random() * 4);
+        allButtons[i].classList.remove(allButtons[i].classList[1]);
+        allButtons[i].classList.add(choices[randomNumber])
+    }
 }
