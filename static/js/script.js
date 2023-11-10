@@ -30,8 +30,17 @@ function generateCat(){
 function rpsGame(yourChoice){
     let humanChoice, botChoice;
     humanChoice = yourChoice.id;
+    console.log("Your choice:", humanChoice);
+
+    botChoice = numberToChoice(randToRpsInt());
+    console.log("Computer choice:", botChoice);
+
     results = decideWinner(humanChoice, botChoice);  // [0, 1] human lost | bot won
+    console.log(results);
+
     message = finalMessage(results); // {message: 'you won!', 'color': 'green'} 
+    console.log(message);
+
     rpsFrontEnd(yourChoice.id, botChoice, message);
 }
 
@@ -41,7 +50,7 @@ function randToRpsInt(){
     return Math.floor(Math.random() * 3);
 }
 
-// pick random number and reeturn choice
+// pick random number and return choice
 
 function numberToChoice(number){
     return ['rock', 'paper', 'scissors'][number];
@@ -49,21 +58,21 @@ function numberToChoice(number){
 
 // possible choices and results.[0, 1] human lost | bot won
 
-function decideWinner(yourChoice, botChoice){
-    let rspObject = {
+function decideWinner(yourChoice, compChoice){
+    var rspData = {
         'rock': {'scissors': 1, 'rock':0.5, 'paper': 0},
         'paper': {'rock': 1, 'paper':0.5, 'scissors': 0},
         'scissors': {'paper': 1, 'scissors':0.5, 'rock': 0},
     };
-    let yourScore = rspObject[yourChoice][botChoice];
-    let botScore = rspObject[botChoice][youChoice];
+    var yourScore = rspData[yourChoice][compChoice];
+    var compScore = rspData[compChoice][yourChoice];
 
-    return [yourScore, botScore];
+    return [yourScore, compScore];
 };
 
 // final message display.{message: 'you won!', 'color': 'green'} 
 
-function finalMessage([yourScore, botScore]){
+function finalMessage([yourScore, compScore]){
     if (yourScore === 0){
         return {'message': 'You Lost!', 'color': 'red'};
     } else if (yourScore === 0.5){
@@ -74,18 +83,24 @@ function finalMessage([yourScore, botScore]){
 };
 
 // frontend logic
-// function rpsFrontEnd(humanImgChoice, botImgChoice, finalMessage){
-//     let imageData ={
-//         'rock': document.getElementById('rock').src,
-//         'paper': document.getElementById('paper').src,
-//         'scissors': document.getElementById('scissors').src,
-//     }
+function rpsFrontEnd(humanImgChoice, botImgChoice, finalMessage){
+    let imageData = {
+        'rock': document.getElementById('rock').src,
+        'paper': document.getElementById('paper').src,
+        'scissors': document.getElementById('scissors').src,
+    }
     
-    // remove all images
-    // document.getElementById('rock').remove();
-    // document.getElementById('paper').remove();
-    // document.getElementById('scissors').remove();
+    // remove all images when one is clicked
+    document.getElementById('rock').remove();
+    document.getElementById('paper').remove();
+    document.getElementById('scissors').remove();
 
-    // create divs
-     
-// }
+    // create divs for each item
+    let humanDiv = document.createElement('div');
+    let botDiv = document.createElement('div');
+    let messageDiv = document.createElement('div');
+
+    humanDiv.innerHTML = "<img src='" + imageData[humanImgChoice] + "' height=150 width=150 style='box-shadow: 0px 10px >"
+
+    
+}
