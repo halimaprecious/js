@@ -1,10 +1,10 @@
-.container-1, .container-2, .container-3{
+.container-1, .container-2, .container-3, .container-4{
     border: 1px solid green;
     margin: 0 auto;
     width: 70%;
     text-align: center;
 }
-.flex-box-container-1, .flex-box-container-2, .flex-box-rps{
+.flex-box-container-1, .flex-box-container-2, .flex-box-rps, .flex-box-pick-color{
 display: flex;
 /* border: 1px solid rgb(43, 226, 217); */
 padding: 10px;
