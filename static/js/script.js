@@ -43,13 +43,12 @@ function rpsGame(yourChoice){
     rpsFrontEnd(yourChoice.id, botChoice, message);
 }
 
-// generate random number btwn o and 2
+// generate random number btwn 0 and 2
 function randToRpsInt(){
     return Math.floor(Math.random() * 3);
 }
 
 // pick random number and return choice
-
 function numberToChoice(number){
     return ['rock', 'paper', 'scissors'][number];
 }
@@ -105,27 +104,31 @@ function rpsFrontEnd(humanImgChoice, botImgChoice, finalMessage){
     document.getElementById('flex-box-rps-div').appendChild(messageDiv);
     document.getElementById('flex-box-rps-div').appendChild(botDiv);
 }
+// play again button(reset)
+function resetGame() {
+    
+  }
 
 // Challenge 4: change button colors.
 let allButtons = document.getElementsByTagName('button') //access all buttons on the page
-console.log(allButtons);
+// console.log(allButtons);
 
-let copyAllButtons = [];  // a copy of buttons
+let copyAllButtons = [];  // a copy of buttons info
 for (let i=0; i < allButtons.length; i++){
     copyAllButtons.push(allButtons[i]);
 }
-console.log(copyAllButtons)
+// console.log(copyAllButtons);
 
-// 
+// main function
 function buttonColorChange(buttonText){
     if (buttonText.value === 'red'){
         buttonsRed();
-    } else if(buttonText.value === 'green'){
+    }else if(buttonText.value === 'green'){
         buttonsGreen();
-    } else if(buttonText.value === 'reset'){
+    }else if(buttonText.value === 'reset'){
         buttonColorReset();
-    }else if (buttonText.value === 'random')
-    randomColors();
+    }else if(buttonText.value === 'random')
+        randomColors();
 }
 
 // change all buttons to red
@@ -153,11 +156,11 @@ function buttonColorReset(){
 
 // random colors
 function randomColors(){
-    let choices = ['btn-primary', 'btn-danger', 'btn-success', 'btn-warning'];
+    let choices = ['btn-primary', 'btn-danger',  'btn-success', 'btn-warning'];
 
     for(let i=0; i < allButtons.length; i++){
         let randomNumber = Math.floor(Math.random() * 4);
         allButtons[i].classList.remove(allButtons[i].classList[1]);
-        allButtons[i].classList.add(choices[randomNumber])
+        allButtons[i].classList.add(choices[randomNumber]);
     }
 }
