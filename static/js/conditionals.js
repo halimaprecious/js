@@ -33,5 +33,18 @@ if (a > b){
 }
 
 // even numbers
-document.querySelector('#even-num')
-let num = 4;
+document.querySelector('#myForm').addEventListener('submit',function(event){
+    event.preventDefault();
+
+let number = document.getElementById('even-num').value;
+
+if(isNaN(number)){
+    document.getElementById('output').innerHTML = 'Please enter a valid number';
+}else{
+    if(number % 2 === 0){
+        document.getElementById('output').innerHTML = `${number} is an even number `;   
+    }else{
+        document.getElementById('output').innerHTML = `${number} is an odd number `;  
+    }
+}
+});
