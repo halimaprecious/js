@@ -1,22 +1,5 @@
 // day 4 exercise
-// level 1:
-
-
-// document.querySelector('submit').addEventListener('click',checkAge)
-// function checkAge(){
-// // get user input
-// let yourAge = document.getElementById('age').value;
-
-// let yearsLeft = (18 - yourAge);
-
-
-// if (yourAge >= 18){
-//     document.getElementById('results').innerHTML = 'You are old enough to drive.';
-// }else {
-//     document.getElementById('results').innerHTML = 'You are not old enough to drive. Please wait for '+ yearsLeft + 'more year(s).';
-// }
-// }
-
+// 1. Age checker
 
 document.querySelector('#ageForm').addEventListener('submit', function (event) {
     event.preventDefault();
@@ -33,7 +16,22 @@ document.querySelector('#ageForm').addEventListener('submit', function (event) {
             document.getElementById("results").innerText = "You are old enough to drive.";
         } else {
             var yearsToWait = 18 - age;
-            document.getElementById("results").innerText = "Sorry, you are not old enough to drive. Please wait for " + yearsToWait + " more year(s).";
+            document.getElementById("results").innerText = "Sorry, you are not old enough to drive.\n Please wait for " + yearsToWait + " more year(s).";
         }
     }
 });
+
+// ternary operator
+
+let a = 4;
+let b = 3;
+
+if (a > b){
+    console.log( `${a} is greater than ${b}`)
+}else{
+    console.log(`${a} is less than ${b}`)
+}
+
+// even numbers
+document.querySelector('#even-num')
+let num = 4;
