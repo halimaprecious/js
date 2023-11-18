@@ -85,3 +85,38 @@ function checkGrade() {
     }
   }
 }
+
+// seasons
+function checkSeason() {
+  var userInput = document.getElementById('seasons').value.trim();
+  var season = getSeason(userInput);
+
+  if (season !== "Invalid month") {
+      document.getElementById('seasonResult').innerText = "The season in " + userInput + " is " + season + ".";
+  } else {
+      document.getElementById('seasonResult').innerText = "Invalid input. Please enter a valid month.";
+  }
+}
+
+function getSeason(month) {
+  switch (month.toLowerCase()) {
+      case "september":
+      case "october":
+      case "november":
+          return "Autumn";
+      case "december":
+      case "january":
+      case "february":
+          return "Winter";
+      case "march":
+      case "april":
+      case "may":
+          return "Spring";
+      case "june":
+      case "july":
+      case "august":
+          return "Summer";
+      default:
+          return "Invalid month";
+  }
+}
